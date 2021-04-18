@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
-
 using Newtonsoft.Json;
 using System.IO;
 
@@ -197,7 +196,7 @@ namespace cli_life
             else
             {               
                 Console.WriteLine(File.ReadAllText(JsonPath)) ;
-                Dictionary<string, double> dict = JsonSerializer.Deserialize<Dictionary<string, double>>(File.ReadAllText(JsonPath));
+                Dictionary<string, double> dict = JsonConvert.DeserializeObject<Dictionary<string, double>>(File.ReadAllText(JsonPath));
                 board = new Board((int)dict["width"],(int)dict["height"],(int)dict["cellSize"],dict["liveDensity"]);                
             }
         }
